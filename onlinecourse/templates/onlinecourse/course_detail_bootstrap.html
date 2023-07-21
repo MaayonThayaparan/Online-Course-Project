@@ -48,7 +48,27 @@
                         <div class="card-header"><h5>Lesson {{lesson.order|add:1}}: {{lesson.title}}</h5></div>
                         <div class="card-body">{{lesson.content}}</div>
                     </div>
-                {% endfor %}
+                    <form id="questionform" action="point to a submit view" method="post">
+                        {% for question in lesson.question_set.all %}
+                        <div class="card mt-1">
+                            <div class="card-header"><h5>{{ question.question_text}}</h5></div>
+                            {% csrf_token %}
+                            <div class="form-group">
+                               {% for choice in lesson.choice_set.all %}
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" name="choice_{{choice.id}}"
+                                               class="form-check-input" id="{{choice.id}}"
+                                               value="{{choice.id}}">{{ choice.choice_text }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    <input class="btn btn-success btn-block" type="submit" value="Submit">
+            </form> -->
+            {% endfor %}
             </div>
             <!-- Task: show questions and choices -->
             <!-- <HINT> Use Bootstrap Collapse to hide exam first, more details could be found here
