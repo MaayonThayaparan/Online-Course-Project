@@ -112,6 +112,7 @@ def enroll(request, course_id):
          # Add each selected choice object to the submission object
          # Redirect to show_exam_result with the submission id
 
+
 def submit(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     user = request.user
@@ -145,7 +146,7 @@ def show_exam_result(request, course_id, submission_id):
     correct = 0
 
     for choice in choices:
-        if choice.is_correct = True:
+        if choice.is_correct == True:
             correct+= 1
             total+=1
         else:
