@@ -114,12 +114,16 @@ def enroll(request, course_id):
 
 
 def submit(request, course_id):
+    
+    user = request.user    
     course = get_object_or_404(Course, pk=course_id)
-    user = request.user
     enrollment = Enrollment.objects.get(user=user, course=course)
+    submission = Submission.objects.create(enrollment=enrollment)
     submitted_answers = extract_answers(request)
-    submission = Submission.objects.create(enrollment=enrollment, choices=submitted_answers)
-    show_exam_result(request, course_id, submission)
+    for answer in submitted_answers:
+        submission.choices.add(answer)
+    grade = show_exam_result(request,course.id,submission.id)
+    return HttpResponseRedirect(reverse(viewname='onlinecourse:exam_result', args=(course.id, submission.id, grade,choices)))
 
 # <HINT> A example method to collect the selected choices from the exam form from the request object
 def extract_answers(request):
@@ -140,7 +144,8 @@ def extract_answers(request):
         # Calculate the total score
 def show_exam_result(request, course_id, submission_id):
     course = get_object_or_404(Course, pk=course_id)
-    choices = submission_id.choices
+    submission = get_object_or_404(Course, pk=submission_id)
+    choices = submission_id.choices.all()
     user = request.user
     total = 0
     correct = 0
@@ -152,8 +157,8 @@ def show_exam_result(request, course_id, submission_id):
         else:
             total+=1
 
-    grade = correct/total
-    return HttpResponseRedirect(reverse(viewname='onlinecourse:exam_result', args=(course.id,choices,grade)))
+    grade = correct/total * 100
+    return grade
 
 
 
