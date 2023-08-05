@@ -27,13 +27,9 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ['name', 'description']
 
 
-class LessonAdmin(admin.ModelAdmin):
-    inlines = [QuestionInline]
-    list_display = ['title']
-
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
-    fields = ['question_text']
+    fields = ['course_id','question_text']
     
 
 class ChoiceAdmin(admin.ModelAdmin):
@@ -43,9 +39,8 @@ class ChoiceAdmin(admin.ModelAdmin):
 # <HINT> Register Question and Choice models here
 
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Lesson, LessonAdmin)
+admin.site.register(Lesson)
 admin.site.register(Instructor)
 admin.site.register(Learner)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Choice, ChoiceAdmin)
-
