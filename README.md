@@ -1,15 +1,60 @@
+# Online Course and Exams
 
-**General Notes**
+## Description
 
-An `onlinecourse` app has already been provided in this repo upon which you will be adding a new assesement feature.
+- This is a Django project which displays online courses. 
+- Unregistered users can only view course content.
+- Registered users can enroll in courses and take the course exam.
+     - Course exam will fail or pass user based on submission details.
+- This webpage is fully customizable as an admin (details provided). 
 
-- If you want to develop the final project on Theia hosted by [IBM Developer Skills Network](https://labs.cognitiveclass.ai/), you will need to create the same project structure on Theia workspace and save it everytime you close the browser
-- Or you could develop the final project locally by setting up your own Python runtime and IDE
-- Hints for the final project are left on source code files
-- You may choose any cloud platform for deployment (default is IBM Cloud Foundry)
-- Depends on your deployment, you may choose any SQL database Django supported such as SQLite3, PostgreSQL, and MySQL (default is SQLite3)
+## Getting Started
 
-**ER Diagram**
-For your reference, we have prepared the ER diagram design for the new assesement feature.
+### Dependencies
+- Tested on Windows 10
+- Tested on Python 3.12.0
+- Download Python from: https://www.python.org/downloads/
+- Requires Python packages: Django, Pillow, distro-info, virtualenv, Django psycopg2-binary
 
-![Onlinecourse ER Diagram](https://github.com/ibm-developer-skills-network/final-cloud-app-with-database/blob/master/static/media/course_images/onlinecourse_app_er.png)
+### Installation
+- Download Python from: https://www.python.org/downloads/
+- Download project from GitHub
+- Open a new terminal and run following commands:
+     - pip install django
+     - python -m pip install Pillow
+     - pip install --upgrade distro-info
+     - pip install virtualenv
+     - pip install Django psycopg2-binary
+     - virtualenv djangoenv
+     - source djangoenv/bin/activate
+  
+### Executing the Program
+- Open terminal
+- Navigate to the project folder
+- Run the following commands:
+     - python -m pip install -U -r requirements.txt
+     - python manage.py makemigrations onlinecourse
+     - python manage.py migrate
+     - python manage.py runserver
+- Last commmand will run the server. Open web browser and enter URL: http://localhost:8000/onlinecourse
+
+
+## Future Optimizations
+- Connect an actual database that store the data
+- Add functionality for 'Edit', 'Delete', 'Comments', 'Category'
+
+
+
+      
+
+
+
+          
+            
+
+         
+      
+       
+
+
+
