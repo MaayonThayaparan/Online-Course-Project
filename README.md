@@ -40,6 +40,9 @@
      - python manage.py migrate
      - python manage.py runserver
 - Last commmand will run the server. Open web browser and enter URL: http://localhost:8000/onlinecourse
+- Without being logged in, you can do the following:
+     - View courses available
+     - 
 
 
 ## Future Optimizations
