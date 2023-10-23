@@ -35,6 +35,8 @@
 - Run the following commands:
      - python -m pip install -U -r requirements.txt
      - python manage.py makemigrations onlinecourse
+          - If prompted to 'Please select a fix', select option '1-Provide a one-odd default now...'
+          - Enter an integer value
      - python manage.py migrate
      - python manage.py runserver
 - Last commmand will run the server. Open web browser and enter URL: http://localhost:8000/onlinecourse
