@@ -25,6 +25,7 @@
      - pip install --upgrade distro-info
      - pip install virtualenv
      - pip install Django psycopg2-binary
+     - pip install aiohttp
      - virtualenv djangoenv
      - source djangoenv/bin/activate
   
