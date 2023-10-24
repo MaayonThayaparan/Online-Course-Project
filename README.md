@@ -6,7 +6,9 @@
 - Unregistered users can only view course content.
 - Registered users can enroll in courses and take the course exam.
      - Course exam will fail or pass user based on submission details.
-- This webpage is fully customizable as an admin (details provided). 
+- This webpage is fully customizable as an admin (details provided).
+
+![image](https://github.com/MaayonThayaparan/Online-Course-Project/assets/43158629/3647724d-51ff-4777-bbc4-f074c85a3418)
 
 ## Getting Started
 
